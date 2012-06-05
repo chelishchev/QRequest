@@ -10,3 +10,23 @@ $_GET['Example'][0]['name']
 
 Выполенение QRequest::getQuery('Example[0][name]') позволит получить эти данные.
 Если не существует такой цепочки вложенных массивов, то вернется null.
+
+
+Подключение
+===========
+Положить QRequest.php в /protected/extensions/
+
+main.php
+
+    'components'=>array(
+        ...
+        'request' => array(
+            'class' => 'ext.QRequest',
+        ),
+
+
+Использование
+=============
+Yii::app()->request->getParam('Example[0][name]');
+Yii::app()->request->getPost('Example[0][name]');
+Yii::app()->request->getQuery('Example[0][name]');
