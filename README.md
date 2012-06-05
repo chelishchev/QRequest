@@ -27,6 +27,8 @@ main.php
 
 Использование
 =============
-Yii::app()->request->getParam('Example[0][name]');
-Yii::app()->request->getPost('Example[0][name]');
-Yii::app()->request->getQuery('Example[0][name]');
+    Yii::app()->request->getParam('Example[0][name]');
+
+    Yii::app()->request->getPost('Example[0][name]');
+
+    Yii::app()->request->getQuery('Example[0][name]');
