@@ -12,10 +12,10 @@ class QRequest extends CHttpRequest
     public function getParam($name, $defaultValue = null)
     {
         $name = $this->_reformatNameToPath($name);
-        $val  = Tools::getFromArrayByKey($name, $_GET);
+        $val  = self::getFromArrayByKey($name, $_GET);
         if(is_null($val))
         {
-            $val = Tools::getFromArrayByKey($name, $_POST);
+            $val = self::getFromArrayByKey($name, $_POST);
         }
 
         return is_null($val) ? $defaultValue : $val;
@@ -29,7 +29,7 @@ class QRequest extends CHttpRequest
     public function getQuery($name, $defaultValue = null)
     {
         $name = $this->_reformatNameToPath($name);
-        $val  = Tools::getFromArrayByKey($name, $_GET);
+        $val  = self::getFromArrayByKey($name, $_GET);
 
         return is_null($val) ? $defaultValue : $val;
     }
@@ -42,7 +42,7 @@ class QRequest extends CHttpRequest
     public function getPost($name, $defaultValue = null)
     {
         $name = $this->_reformatNameToPath($name);
-        $val  = Tools::getFromArrayByKey($name, $_POST);
+        $val  = self::getFromArrayByKey($name, $_POST);
 
         return is_null($val) ? $defaultValue : $val;
     }
