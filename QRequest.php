@@ -84,22 +84,19 @@ class QRequest extends CHttpRequest
             //если данный ключ существует, то идем в глубь дальше
             if(is_array($tmp) && array_key_exists($partKey, $tmp))
             {
-                //если это последний ключ, то вернем по нему искомое значение
-                if($lastKeys === $partKey)
-                {
-                    return $tmp[$partKey];
-                }
                 //ссылаемся на вложенный массив
                 $tmp = &$tmp[$partKey];
             }
             //если такого ключа не существует, то выходим
             else
             {
-                break;
+                return null;
             }
         }
-        unset($partKey, $tmp);
-
-        return null;
+        //если был проход успешный до последнего ключа, то возвращаем результат
+        if(!next($partKeys))
+        {
+            return $tmp;
+        }
     }
 }
